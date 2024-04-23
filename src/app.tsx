@@ -1,10 +1,14 @@
-import "./app.css"
+import "./app.scss"
+
+import { Footer, Header, Minesweeper } from "./containers"
 
 function App() {
 	return (
-		<main>
-			<h1>Home</h1>
-		</main>
+		<>
+			<Header />
+			<Minesweeper />
+			<Footer />
+		</>
 	)
 }
 

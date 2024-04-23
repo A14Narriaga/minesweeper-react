@@ -1,0 +1,41 @@
+input,
+textarea {
+	outline: none;
+	border: none;
+}
+
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+ul,
+li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--card-color);
+}
+
+::-webkit-scrollbar {
+	width: 0.85rem;
+	height: 0.85rem;
+}
+
+::-webkit-scrollbar-thumb {
+	border: 0.3rem solid rgba(227, 227, 227, 0);
+	background-clip: padding-box;
+	border-radius: 10rem;
+	background-color: var(--detail-color);
+}
