@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
 export const FlagsContainer = styled.div`
-	background-color: greenyellow;
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
 `

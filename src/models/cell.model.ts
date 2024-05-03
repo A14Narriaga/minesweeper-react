@@ -1,4 +1,4 @@
 export interface ICell {
-	icon: string
-	type: string
+	cover: boolean
+	type: "mine" | "flag" | number | ""
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components"
 
 export const StatusContainer = styled.div`
-	background-color: blue;
+	font-size: 1.3rem;
 `

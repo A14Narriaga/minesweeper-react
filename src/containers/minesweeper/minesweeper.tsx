@@ -1,12 +1,13 @@
 import { MinesweeperContainer } from "./_minesweeper.styled"
 import { Board } from "./board"
-import { Controls } from "./controls"
 
 export const Minesweeper = () => {
 	return (
 		<MinesweeperContainer>
-			<Controls />
-			<Board />
+			<Board
+				numOfCols={10}
+				numOfRows={10}
+			/>
 		</MinesweeperContainer>
 	)
 }
