@@ -24,6 +24,7 @@ function App() {
 			<Board
 				numOfCols={10}
 				numOfRows={10}
+				numOfMines={10}
 			/>
 			<Timer />
 			<Controls />

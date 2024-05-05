@@ -29,6 +29,9 @@ export const AtmIcon = ({ name, ...props }: PropsAtmIcon) => {
 		case "flag": {
 			return <IoFlag {...props} />
 		}
+		case "mine": {
+			return <span {...props}>🦠</span>
+		}
 		case "status-playing": {
 			return <span {...props}>😃</span>
 		}

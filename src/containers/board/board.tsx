@@ -1,30 +1,41 @@
+import { useState } from "react"
+
+import { Minesweeper } from "@src/classes"
 import { ICell } from "@src/models"
 
 import { BoardContainer } from "./_board.styled"
 import { Cell } from "./cell"
 
-const cell: ICell = { cover: false, type: "" }
-
 interface PropsBoard {
 	numOfRows: number
 	numOfCols: number
+	numOfMines: number
 }
 
-const getArrayOfZeros = (length: number) => Array.from({ length }).fill(0)
+export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
+	const [board, setBoard] = useState<Array<Array<ICell>>>([])
+	const minesweeper = new Minesweeper(numOfRows, numOfCols, numOfMines)
 
-export const Board = ({ numOfCols, numOfRows }: PropsBoard) => {
-	const rows = getArrayOfZeros(numOfRows)
-	const cols = getArrayOfZeros(numOfCols)
+	const startGame = (rowIndex: number, colIndex: number) => {
+		minesweeper.unconverBoard(rowIndex, colIndex)
+		setBoard(minesweeper.getBoard())
+	}
+
+	useState(() => {
+		const initialBoard = minesweeper.getBoard()
+		setBoard(initialBoard)
+	}, [])
 
 	return (
 		<BoardContainer>
 			<div className="board">
-				{rows.map((__, rowIndex) => (
+				{board.map((row, rowIndex) => (
 					<div
 						key={rowIndex}
 						className="rows">
-						{cols.map((__, colIndex) => (
+						{row.map((cell, colIndex) => (
 							<Cell
+								onClick={() => startGame(rowIndex, colIndex)}
 								key={`${colIndex}${rowIndex}`}
 								cell={cell}
 								colIndex={colIndex}
