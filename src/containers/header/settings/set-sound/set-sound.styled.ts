@@ -1,5 +1,15 @@
 import styled from "styled-components"
 
 export const SetSoundContainer = styled.div`
-	background-color: rosybrown;
+	p {
+		color: var(--color-primary);
+		font-weight: 500;
+	}
+	div {
+		margin-top: 0.5rem;
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		font-size: 2rem;
+	}
 `

@@ -24,18 +24,17 @@ a:focus {
 	outline: none !important;
 }
 
-// ::-webkit-scrollbar-track {
-// 	background-color: var(--card-color);
-// }
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
 
-// ::-webkit-scrollbar {
-// 	width: 0.85rem;
-// 	height: 0.85rem;
-// }
+::-webkit-scrollbar {
+	width: 0.4rem;
+	height: 0.4rem;
+}
 
-// ::-webkit-scrollbar-thumb {
-// 	border: 0.3rem solid rgba(227, 227, 227, 0);
-// 	background-clip: padding-box;
-// 	border-radius: 10rem;
-// 	background-color: var(--detail-color);
-// }
+::-webkit-scrollbar-thumb {
+	background-clip: padding-box;
+	border-radius: 8rem;
+	background-color: var(--color-disabled);
+}

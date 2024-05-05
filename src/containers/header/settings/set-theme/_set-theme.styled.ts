@@ -1,5 +1,14 @@
 import styled from "styled-components"
 
 export const SetThemeContainer = styled.div`
-	background-color: bisque;
+	p {
+		color: var(--color-primary);
+		font-weight: 500;
+	}
+	.themes {
+		margin-top: 0.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
 `

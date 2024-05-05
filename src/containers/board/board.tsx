@@ -18,18 +18,22 @@ export const Board = ({ numOfCols, numOfRows }: PropsBoard) => {
 
 	return (
 		<BoardContainer>
-			{rows.map((__, rowIndex) => (
-				<div
-					key={rowIndex}
-					className="rows">
-					{cols.map((__, colIndex) => (
-						<Cell
-							key={`${colIndex}${rowIndex}`}
-							cell={cell}
-						/>
-					))}
-				</div>
-			))}
+			<div className="board">
+				{rows.map((__, rowIndex) => (
+					<div
+						key={rowIndex}
+						className="rows">
+						{cols.map((__, colIndex) => (
+							<Cell
+								key={`${colIndex}${rowIndex}`}
+								cell={cell}
+								colIndex={colIndex}
+								rowIndex={rowIndex}
+							/>
+						))}
+					</div>
+				))}
+			</div>
 		</BoardContainer>
 	)
 }

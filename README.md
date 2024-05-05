@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/react.png" alt="React" height="200" />
+  <img src="./public/images/react.png" alt="React" height="200" />
 </p>
 
 <h1 align="center">✨ React Template ✨</h1>

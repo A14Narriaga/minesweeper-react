@@ -32,10 +32,10 @@ export const Timer = () => {
 	return (
 		<TimerContainer>
 			{formatTime(seconds)}
-			{/* <button onClick={isRunning ? stop : start}>
+			<button onClick={isRunning ? stop : start}>
 				{isRunning ? "Detener" : "Iniciar"}
 			</button>
-			<button onClick={reset}>Reiniciar</button> */}
+			<button onClick={reset}>Reiniciar</button>
 		</TimerContainer>
 	)
 }
