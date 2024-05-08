@@ -16,18 +16,15 @@ interface PropsBoard {
 export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
-	const [board, setBoard] = useState<Array<Array<ICell>>>([])
-	const minesweeper = new Minesweeper(numOfRows, numOfCols, numOfMines)
+	const [minesweeper] = useState<Minesweeper>(
+		new Minesweeper(numOfRows, numOfCols, numOfMines)
+	)
+	const [board, setBoard] = useState<Array<Array<ICell>>>(minesweeper.board)
 
 	const startGame = (rowIndex: number, colIndex: number) => {
 		minesweeper.unconverBoard(rowIndex, colIndex)
-		setBoard(minesweeper.getBoard())
+		setBoard([...minesweeper.board])
 	}
-
-	useState(() => {
-		const initialBoard = minesweeper.getBoard()
-		setBoard(initialBoard)
-	}, [])
 
 	return (
 		<BoardContainer $theme={customTheme}>
