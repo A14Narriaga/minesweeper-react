@@ -1,4 +1,7 @@
+import { useTheme } from "@mui/material"
 import { useEffect, useState } from "react"
+
+import { ITheme } from "@src/models"
 
 import { TimerContainer } from "./_timer.styled"
 
@@ -10,6 +13,9 @@ const formatTime = (seconds: number): string => {
 }
 
 export const Timer = () => {
+	const theme = useTheme()
+	const customTheme = theme as unknown as ITheme
+
 	const [seconds, setSeconds] = useState<number>(0)
 	const [isRunning, setIsRunning] = useState<boolean>(false)
 
@@ -30,7 +36,7 @@ export const Timer = () => {
 	}, [isRunning])
 
 	return (
-		<TimerContainer>
+		<TimerContainer $theme={customTheme}>
 			{formatTime(seconds)}
 			<button onClick={isRunning ? stop : start}>
 				{isRunning ? "Detener" : "Iniciar"}

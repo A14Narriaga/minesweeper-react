@@ -1,12 +1,18 @@
 import styled from "styled-components"
 
-export const HeaderContainer = styled.header`
+import { ITheme } from "@src/models"
+
+interface PropsHeaderContainer {
+	$theme: ITheme
+}
+
+export const HeaderContainer = styled.header<PropsHeaderContainer>`
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: var(--color-1);
-	color: var(--color-text-1);
+	background-color: ${({ $theme }) => $theme.colors.primary};
+	color: ${({ $theme }) => $theme.colors.text1};
 	padding: 1rem;
 	display: flex;
 	justify-content: space-between;

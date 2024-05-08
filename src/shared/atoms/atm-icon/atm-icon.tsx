@@ -1,3 +1,4 @@
+import { useTheme } from "@emotion/react"
 import { CSSProperties } from "react"
 import { BsVolumeUp } from "react-icons/bs"
 import { BsVolumeOff } from "react-icons/bs"
@@ -5,8 +6,9 @@ import { BsVolumeDown } from "react-icons/bs"
 import { FaRegFileLines } from "react-icons/fa6"
 import { GoTrophy } from "react-icons/go"
 import { IoSettingsOutline } from "react-icons/io5"
-import { IoFlag } from "react-icons/io5"
 import { TbError404 } from "react-icons/tb"
+
+import { ITheme } from "@src/models"
 
 interface PropsAtmIcon {
 	name: string
@@ -16,6 +18,8 @@ interface PropsAtmIcon {
 }
 
 export const AtmIcon = ({ name, ...props }: PropsAtmIcon) => {
+	const theme = useTheme()
+	const customTheme = theme as unknown as ITheme
 	switch (name) {
 		case "instructions": {
 			return <FaRegFileLines {...props} />
@@ -27,10 +31,10 @@ export const AtmIcon = ({ name, ...props }: PropsAtmIcon) => {
 			return <GoTrophy {...props} />
 		}
 		case "flag": {
-			return <IoFlag {...props} />
+			return <span {...props}>{customTheme.icons.flag}</span>
 		}
 		case "mine": {
-			return <span {...props}>🦠</span>
+			return <span {...props}>{customTheme.icons.mine}</span>
 		}
 		case "status-playing": {
 			return <span {...props}>😃</span>

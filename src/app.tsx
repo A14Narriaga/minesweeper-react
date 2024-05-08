@@ -1,25 +1,14 @@
 import "./app.scss"
 
-import { createTheme, ThemeProvider } from "@mui/material"
+import { ThemeProvider } from "@mui/material"
 
 import { Board, Controls, Header, Timer } from "./containers"
 import { Sound } from "./containers/sound"
-
-const theme = createTheme({
-	typography: {
-		fontFamily: "Orbitron, sans-serif"
-	},
-	palette: {
-		mode: "dark"
-		// background: {
-		// 	paper: "var(--color-bg)"
-		// }
-	}
-})
+import { Theme } from "./themes"
 
 function App() {
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={Theme.green}>
 			<Header />
 			<Board
 				numOfCols={18}

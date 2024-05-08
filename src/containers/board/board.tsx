@@ -1,7 +1,8 @@
+import { useTheme } from "@mui/material"
 import { useState } from "react"
 
 import { Minesweeper } from "@src/classes"
-import { ICell } from "@src/models"
+import { ICell, ITheme } from "@src/models"
 
 import { BoardContainer } from "./_board.styled"
 import { Cell } from "./cell"
@@ -13,6 +14,8 @@ interface PropsBoard {
 }
 
 export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
+	const theme = useTheme()
+	const customTheme = theme as unknown as ITheme
 	const [board, setBoard] = useState<Array<Array<ICell>>>([])
 	const minesweeper = new Minesweeper(numOfRows, numOfCols, numOfMines)
 
@@ -27,7 +30,7 @@ export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
 	}, [])
 
 	return (
-		<BoardContainer>
+		<BoardContainer $theme={customTheme}>
 			<div className="board">
 				{board.map((row, rowIndex) => (
 					<div

@@ -1,10 +1,15 @@
+import { useTheme } from "@mui/material"
 import { useRef } from "react"
+
+import { ITheme } from "@src/models"
 
 import { SoundContainer } from "./_sound.styled"
 
 const src = "/public/sounds/cyberpunk-moonlight-sonata-v2.mp3"
 
 export const Sound = () => {
+	const theme = useTheme()
+	const customTheme = theme as unknown as ITheme
 	const audioRef = useRef<HTMLAudioElement>(null)
 
 	const play = () => {
@@ -28,7 +33,7 @@ export const Sound = () => {
 	}
 
 	return (
-		<SoundContainer>
+		<SoundContainer $theme={customTheme}>
 			<audio
 				ref={audioRef}
 				src={src}
