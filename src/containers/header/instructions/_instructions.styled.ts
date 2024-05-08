@@ -5,7 +5,7 @@ export const InstructionsContainer = styled.section`
 	flex-direction: column;
 	gap: 1rem;
 	span {
-		color: var(--color-primary);
+		color: var(--color-1);
 		font-weight: 500;
 	}
 `

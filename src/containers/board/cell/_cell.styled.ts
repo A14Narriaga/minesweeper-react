@@ -6,21 +6,30 @@ interface PropsCellContainer {
 	$col: number
 }
 
-const getCellColor = (cover: boolean, col: number, row: number) => {
-	if (cover) {
-		const colorA = "var(--color-primary-cell)"
-		const colorB = "var(--color-secondary-cell)"
-		const evenCol = col % 2 === 0 ? colorA : colorB
-		const oddCol = col % 2 === 0 ? colorB : colorA
-		return row % 2 === 0 ? evenCol : oddCol
-	} else {
-		return "rgba(199, 199, 199, 0.568)"
-	}
+const colorCover1 = "var(--color-cell-cover-1)"
+const colorCover2 = "var(--color-cell-cover-2)"
+const colorUncover1 = "var(--color-cell-uncover-1)"
+const colorUncover2 = "var(--color-cell-uncover-2)"
+const colorHover = "var(--color-cell-hover)"
+
+const getCellColor = (
+	isHover: boolean,
+	cover: boolean,
+	col: number,
+	row: number
+) => {
+	const colorAux1 = isHover ? colorHover : colorCover1
+	const colorAux2 = isHover ? colorHover : colorCover2
+	const color1 = cover ? colorAux1 : colorUncover1
+	const color2 = cover ? colorAux2 : colorUncover2
+	const evenCol = col % 2 === 0 ? color1 : color2
+	const oddCol = col % 2 === 0 ? color2 : color1
+	return row % 2 === 0 ? evenCol : oddCol
 }
 
 export const CellContainer = styled.div<PropsCellContainer>`
 	background-color: ${({ $cover, $col, $row }) =>
-		getCellColor($cover, $col, $row)};
+		getCellColor(false, $cover, $col, $row)};
 	min-width: 2rem;
 	aspect-ratio: 1;
 	display: flex;
@@ -30,21 +39,22 @@ export const CellContainer = styled.div<PropsCellContainer>`
 	i {
 		color: rgba(34, 31, 31, 0.801);
 		font-size: 1.2rem;
+		font-weight: 500;
 	}
 	.num-1 {
-		color: rgb(240, 206, 206);
+		color: blue;
 	}
 	.num-2 {
-		color: rgb(198, 205, 235);
+		color: red;
 	}
 	.num-3 {
-		color: rgb(173, 230, 185);
+		color: green;
 	}
 	.num-4 {
-		color: rgb(231, 187, 231);
+		color: purple;
 	}
 	.num-5 {
-		color: rgb(235, 231, 186);
+		color: orange;
 	}
 	.num-6 {
 		color: rgb(176, 233, 225);
@@ -56,7 +66,7 @@ export const CellContainer = styled.div<PropsCellContainer>`
 		color: rgb(240, 216, 193);
 	}
 	&:hover {
-		background-color: ${({ $cover }) =>
-			$cover ? "gray" : "rgba(199, 199, 199, 0.568)"};
+		background-color: ${({ $cover, $col, $row }) =>
+			getCellColor(true, $cover, $col, $row)};
 	}
 `

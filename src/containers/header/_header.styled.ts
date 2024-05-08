@@ -5,8 +5,8 @@ export const HeaderContainer = styled.header`
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: var(--color-primary);
-	color: var(--color-primary-text);
+	background-color: var(--color-1);
+	color: var(--color-text-1);
 	padding: 1rem;
 	display: flex;
 	justify-content: space-between;

@@ -10,7 +10,7 @@ const theme = createTheme({
 		fontFamily: "Orbitron, sans-serif"
 	},
 	palette: {
-		mode: "light"
+		mode: "dark"
 		// background: {
 		// 	paper: "var(--color-bg)"
 		// }
@@ -22,9 +22,9 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<Header />
 			<Board
-				numOfCols={10}
-				numOfRows={10}
-				numOfMines={10}
+				numOfCols={18}
+				numOfRows={14}
+				numOfMines={40}
 			/>
 			<Timer />
 			<Controls />

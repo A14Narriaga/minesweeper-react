@@ -7,8 +7,8 @@ export const BoardContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 	.board {
-		background-color: var(--color-primary);
-		padding: 0.5rem;
+		background-color: var(--color-1);
+		padding: 0.3rem;
 		border-radius: var(--border-radius);
 		display: flex;
 		flex-direction: column;

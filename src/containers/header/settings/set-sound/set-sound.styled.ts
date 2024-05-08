@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const SetSoundContainer = styled.div`
 	p {
-		color: var(--color-primary);
+		color: var(--color-1);
 		font-weight: 500;
 	}
 	div {

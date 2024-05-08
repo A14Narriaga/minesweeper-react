@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const SetLevelContainer = styled.div`
 	p {
-		color: var(--color-primary);
+		color: var(--color-1);
 		font-weight: 500;
 	}
 	.levels {
@@ -23,9 +23,9 @@ export const SetLevelContainer = styled.div`
 			color: var(--color-disabled);
 		}
 		.active {
-			border-color: var(--color-primary);
+			border-color: var(--color-1);
 			border-width: 2px;
-			color: var(--color-secondary-text);
+			color: var(--color-text-2);
 			font-weight: 500;
 		}
 	}

@@ -19,7 +19,7 @@ export class Minesweeper {
 		this.mines = []
 		this.board = Array.from({ length: numOfRows }).map(() =>
 			Array.from({ length: numOfCols }).map(
-				() => ({ cover: true, type: "" }) as ICell
+				() => ({ cover: true, flag: false, type: "" }) as ICell
 			)
 		)
 		this.#addMines()

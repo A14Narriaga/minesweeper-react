@@ -6,7 +6,7 @@ interface PropsThemeContainer {
 
 export const ThemeContainer = styled.div<PropsThemeContainer>`
 	border: ${({ $active }) =>
-		$active ? "2px solid var(--color-primary)" : "1px solid gray"};
+		$active ? "2px solid var(--color-1)" : "1px solid gray"};
 	padding: 0.2rem;
 	border-radius: 10rem;
 	cursor: pointer;
@@ -21,19 +21,19 @@ export const ThemeContainer = styled.div<PropsThemeContainer>`
 				height: 1.46rem;
 			}
 			.half-top {
-				background-color: var(--color-primary);
+				background-color: var(--color-1);
 				border-radius: 1.5rem 1.5rem 0 0;
 			}
 			.half-bottom {
-				background-color: var(--color-secondary);
+				background-color: var(--color-2);
 				border-radius: 0 0 1.5rem 1.5rem;
 			}
 		}
 		.icon {
 			position: absolute;
 			font-size: 1.5rem;
-			background-color: var(--color-primary-text);
-			color: var(--color-secondary-text);
+			background-color: var(--color-text-1);
+			color: var(--color-text-2);
 			border-radius: 10rem;
 			padding: 0.2rem;
 			top: 50%;
