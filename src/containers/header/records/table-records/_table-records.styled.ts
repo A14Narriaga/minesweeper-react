@@ -1,8 +1,13 @@
 import styled from "styled-components"
 
-export const TableRecordsContainer = styled.div`
+import { ITheme } from "@src/models"
+
+interface PropsTableRecordsContainer {
+	$theme: ITheme
+}
+
+export const TableRecordsContainer = styled.div<PropsTableRecordsContainer>`
 	p {
-		color: var(--color-1);
-		font-weight: 500;
+		color: ${({ $theme }) => $theme.colors.cellCover2};
 	}
 `

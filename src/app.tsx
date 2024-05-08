@@ -4,11 +4,11 @@ import { ThemeProvider } from "@mui/material"
 
 import { Board, Controls, Header, Timer } from "./containers"
 import { Sound } from "./containers/sound"
-import { Theme } from "./themes"
+import { Themes } from "./styles/themes"
 
 function App() {
 	return (
-		<ThemeProvider theme={Theme.green}>
+		<ThemeProvider theme={Themes.green}>
 			<Header />
 			<Board
 				numOfCols={18}

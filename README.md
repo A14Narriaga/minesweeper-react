@@ -141,3 +141,7 @@ And to try to fix lint issues automatically, you can run:
 ```bash
 yarn lint:fix
 ```
+
+## Resources
+
+<https://opengameart.org/content/cyberpunk-moonlight-sonata>

@@ -1,8 +1,9 @@
 import { createTheme } from "@mui/material"
 
-import { CustomThemeOptions } from "./models"
+import { CustomThemeOptions } from "@src/models"
 
-const green = createTheme({
+export const GreenTheme = createTheme({
+	id: "green-theme",
 	typography: {
 		fontFamily: "Orbitron, sans-serif"
 	},
@@ -10,6 +11,21 @@ const green = createTheme({
 		mode: "dark",
 		background: {
 			paper: "#000000"
+		}
+	},
+	components: {
+		MuiSlider: {
+			styleOverrides: {
+				thumb: {
+					color: "#aad751"
+				},
+				track: {
+					color: "#aad751"
+				},
+				rail: {
+					color: "green"
+				}
+			}
 		}
 	},
 	icons: {
@@ -38,7 +54,3 @@ const green = createTheme({
 		num8: "rgb(240, 216, 193)"
 	}
 } as CustomThemeOptions)
-
-export const Theme = {
-	green
-}

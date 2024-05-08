@@ -1,9 +1,14 @@
 import styled from "styled-components"
 
-export const SetLevelContainer = styled.div`
+import { ITheme } from "@src/models"
+
+interface PropsSetLevelContainer {
+	$theme: ITheme
+}
+
+export const SetLevelContainer = styled.div<PropsSetLevelContainer>`
 	p {
-		color: var(--color-1);
-		font-weight: 500;
+		color: ${({ $theme }) => $theme.colors.cellCover2};
 	}
 	.levels {
 		margin-top: 0.5rem;
@@ -16,17 +21,15 @@ export const SetLevelContainer = styled.div`
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			border: 1px solid var(--color-disabled);
+			border: 1px solid ${({ $theme }) => $theme.colors.disabled};
 			border-radius: var(--border-radius);
 			padding: 0.5rem;
 			cursor: pointer;
-			color: var(--color-disabled);
+			color: ${({ $theme }) => $theme.colors.disabled};
 		}
 		.active {
-			border-color: var(--color-1);
-			border-width: 2px;
-			color: var(--color-text-2);
-			font-weight: 500;
+			color: ${({ $theme }) => $theme.colors.text2};
+			background-color: ${({ $theme }) => $theme.colors.cellCover1};
 		}
 	}
 `

@@ -4,8 +4,11 @@ import {
 	TableCell,
 	TableContainer,
 	TableHead,
-	TableRow
+	TableRow,
+	useTheme
 } from "@mui/material"
+
+import { ITheme } from "@src/models"
 
 import { TableRecordsContainer } from "./_table-records.styled"
 
@@ -37,8 +40,10 @@ const getMedal = (position: number) => {
 }
 
 export const TableRecords = ({ title, records }: PropsTable) => {
+	const theme = useTheme()
+	const customTheme = theme as unknown as ITheme
 	return (
-		<TableRecordsContainer>
+		<TableRecordsContainer $theme={customTheme}>
 			<p>{title}</p>
 			<TableContainer>
 				<Table

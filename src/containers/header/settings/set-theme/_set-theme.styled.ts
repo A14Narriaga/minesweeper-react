@@ -1,9 +1,14 @@
 import styled from "styled-components"
 
-export const SetThemeContainer = styled.div`
+import { ITheme } from "@src/models"
+
+interface PropsSetThemeContainer {
+	$theme: ITheme
+}
+
+export const SetThemeContainer = styled.div<PropsSetThemeContainer>`
 	p {
-		color: var(--color-1);
-		font-weight: 500;
+		color: ${({ $theme }) => $theme.colors.cellCover2};
 	}
 	.themes {
 		margin-top: 0.5rem;

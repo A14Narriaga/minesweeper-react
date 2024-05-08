@@ -1,9 +1,14 @@
 import styled from "styled-components"
 
-export const SetSoundContainer = styled.div`
+import { ITheme } from "@src/models"
+
+interface PropsSetSoundContainer {
+	$theme: ITheme
+}
+
+export const SetSoundContainer = styled.div<PropsSetSoundContainer>`
 	p {
-		color: var(--color-1);
-		font-weight: 500;
+		color: ${({ $theme }) => $theme.colors.cellCover2};
 	}
 	div {
 		margin-top: 0.5rem;

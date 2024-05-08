@@ -1,10 +1,15 @@
+import { useTheme } from "@mui/material"
 import { useState } from "react"
 
+import { ITheme } from "@src/models"
 import { AtmIcon, MolModal } from "@src/shared"
 
 import { InstructionsContainer } from "./_instructions.styled"
 
 export const Instructions = () => {
+	const theme = useTheme()
+	const customTheme = theme as unknown as ITheme
+
 	const [open, setOpen] = useState(false)
 
 	const handleOpen = () => setOpen(true)
@@ -20,7 +25,7 @@ export const Instructions = () => {
 				open={open}
 				title="Instrucciones"
 				handleClose={handleClose}>
-				<InstructionsContainer>
+				<InstructionsContainer $theme={customTheme}>
 					<p>
 						<span>Objetivo del juego:</span> El objetivo del Buscaminas es
 						descubrir todas las casillas que no contienen minas sin hacer

@@ -1,14 +1,18 @@
+import { ITheme } from "@src/models"
 import { AtmIcon } from "@src/shared"
 
 import { ThemeContainer } from "./_theme.styled"
 
 interface PropsTheme {
 	active?: boolean
+	theme: ITheme
 }
 
-export const Theme = ({ active = false }: PropsTheme) => {
+export const Theme = ({ theme, active = false }: PropsTheme) => {
 	return (
-		<ThemeContainer $active={active}>
+		<ThemeContainer
+			$theme={theme}
+			$active={active}>
 			<div className="theme-wrapper">
 				<div className="circle">
 					<div className="half-top"></div>
@@ -16,7 +20,7 @@ export const Theme = ({ active = false }: PropsTheme) => {
 				</div>
 				<AtmIcon
 					className="icon"
-					name="settings"
+					name="mine"
 				/>
 			</div>
 		</ThemeContainer>

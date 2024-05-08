@@ -1,12 +1,18 @@
 import styled from "styled-components"
 
+import { ITheme } from "@src/models"
+
 interface PropsThemeContainer {
-	$active?: boolean
+	$active: boolean
+	$theme: ITheme
+}
+
+const getColor = (active: boolean, theme: ITheme): string => {
+	return active ? theme.colors.cellCover2 : theme.colors.disabled
 }
 
 export const ThemeContainer = styled.div<PropsThemeContainer>`
-	border: ${({ $active }) =>
-		$active ? "2px solid var(--color-1)" : "1px solid gray"};
+	border: 2px solid ${({ $active, $theme }) => getColor($active, $theme)};
 	padding: 0.2rem;
 	border-radius: 10rem;
 	cursor: pointer;
@@ -21,21 +27,21 @@ export const ThemeContainer = styled.div<PropsThemeContainer>`
 				height: 1.46rem;
 			}
 			.half-top {
-				background-color: var(--color-1);
+				background-color: ${({ $theme }) => $theme.colors.primary};
 				border-radius: 1.5rem 1.5rem 0 0;
 			}
 			.half-bottom {
-				background-color: var(--color-2);
+				background-color: ${({ $theme }) => $theme.colors.secondary};
 				border-radius: 0 0 1.5rem 1.5rem;
 			}
 		}
 		.icon {
 			position: absolute;
-			font-size: 1.5rem;
-			background-color: var(--color-text-1);
-			color: var(--color-text-2);
+			font-size: 1.1rem;
+			background-color: ${({ $theme }) => $theme.colors.text1};
+			color: ${({ $theme }) => $theme.colors.text2};
 			border-radius: 10rem;
-			padding: 0.2rem;
+			padding: 0.1rem;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
