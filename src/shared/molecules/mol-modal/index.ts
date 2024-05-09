@@ -1,1 +1,1 @@
-export * from "./mol-modal"
+export * from "./_mol-modal"

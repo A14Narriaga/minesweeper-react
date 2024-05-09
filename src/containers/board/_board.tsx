@@ -21,7 +21,7 @@ export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
 	)
 	const [board, setBoard] = useState<Array<Array<ICell>>>(minesweeper.board)
 
-	const startGame = (rowIndex: number, colIndex: number) => {
+	const uncover = (rowIndex: number, colIndex: number) => {
 		minesweeper.unconverBoard(rowIndex, colIndex)
 		setBoard([...minesweeper.board])
 	}
@@ -35,7 +35,7 @@ export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
 						className="rows">
 						{row.map((cell, colIndex) => (
 							<Cell
-								onClick={() => startGame(rowIndex, colIndex)}
+								onClick={() => uncover(rowIndex, colIndex)}
 								key={`${colIndex}${rowIndex}`}
 								cell={cell}
 								colIndex={colIndex}

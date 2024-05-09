@@ -4,7 +4,7 @@ import { useState } from "react"
 import { ITheme } from "@src/models"
 import { AtmIcon } from "@src/shared"
 
-import { SetSoundContainer } from "./set-sound.styled"
+import { SetSoundContainer } from "./_set-sound.styled"
 
 export const SetSound = () => {
 	const theme = useTheme()

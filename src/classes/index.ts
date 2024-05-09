@@ -1,1 +1,1 @@
-export * from "./minesweeper"
+export * from "./_minesweeper"

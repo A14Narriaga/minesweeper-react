@@ -1,24 +1,15 @@
 import "./app.scss"
 
-import { ThemeProvider } from "@mui/material"
+import { Provider } from "react-redux"
 
-import { Board, Controls, Header, Timer } from "./containers"
-import { Sound } from "./containers/sound"
-import { Themes } from "./styles/themes"
+import { AppWrapper } from "./app-wrapper"
+import store from "./redux/_store"
 
 function App() {
 	return (
-		<ThemeProvider theme={Themes.green}>
-			<Header />
-			<Board
-				numOfCols={18}
-				numOfRows={14}
-				numOfMines={40}
-			/>
-			<Timer />
-			<Controls />
-			<Sound />
-		</ThemeProvider>
+		<Provider store={store}>
+			<AppWrapper />
+		</Provider>
 	)
 }
 

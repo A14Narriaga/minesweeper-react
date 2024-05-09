@@ -1,1 +1,1 @@
-export * from "./table-records"
+export * from "./_table-records"

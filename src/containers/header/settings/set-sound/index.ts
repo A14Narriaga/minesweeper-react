@@ -1,1 +1,1 @@
-export * from "./set-sound"
+export * from "./_set-sound"

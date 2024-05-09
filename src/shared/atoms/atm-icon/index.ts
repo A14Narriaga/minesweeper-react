@@ -1,1 +1,1 @@
-export * from "./atm-icon"
+export * from "./_atm-icon"
