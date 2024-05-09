@@ -36,8 +36,17 @@ export const AtmIcon = ({ name, ...props }: PropsAtmIcon) => {
 		case "mine": {
 			return <span {...props}>{customTheme.icons.mine}</span>
 		}
-		case "status-playing": {
-			return <span {...props}>😃</span>
+		case "status-none": {
+			return <span {...props}>😗</span>
+		}
+		case "status-started": {
+			return <span {...props}>🤔</span>
+		}
+		case "status-lost": {
+			return <span {...props}>💀</span>
+		}
+		case "status-won": {
+			return <span {...props}>😎</span>
 		}
 		case "volume-up": {
 			return <BsVolumeUp />

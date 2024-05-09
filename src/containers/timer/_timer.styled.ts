@@ -10,6 +10,7 @@ export const TimerContainer = styled.div<PropsTimerContainer>`
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	width: 8.3rem;
 	background-color: ${({ $theme }) => $theme.colors.primary};
 	color: ${({ $theme }) => $theme.colors.text1};
 	padding: 0.5rem;

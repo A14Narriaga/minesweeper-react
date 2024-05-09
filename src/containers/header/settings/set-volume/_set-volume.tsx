@@ -9,7 +9,7 @@ import { SetVolumeContainer } from "./_set-volume.styled"
 
 export const SetVolume = () => {
 	const app = useApp()
-	const initialVolume = app.get().volume
+	const { volume: initialVolume } = app.get()
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
 	const [volume, setVolume] = useState<number>(initialVolume)

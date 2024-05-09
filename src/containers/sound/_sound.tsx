@@ -1,22 +1,23 @@
-import { useTheme } from "@mui/material"
 import { useEffect, useRef } from "react"
 
-import { useApp } from "@src/hooks"
-import { ITheme } from "@src/models"
-
-import { SoundContainer } from "./_sound.styled"
+import { useApp, useGame } from "@src/hooks"
+import { GameStausTypes } from "@src/models"
 
 const src = "/public/sounds/cyberpunk-moonlight-sonata-v2.mp3"
 
 export const Sound = () => {
+	const { status } = useGame().get()
+	const isRunning = status === GameStausTypes.STARTED
 	const volume = useApp().get().volume / 100
-	const theme = useTheme()
-	const customTheme = theme as unknown as ITheme
 	const audioRef = useRef<HTMLAudioElement>(null)
 
 	useEffect(() => {
 		setVolume(volume)
 	}, [volume])
+
+	useEffect(() => {
+		isRunning ? play() : stop()
+	}, [isRunning])
 
 	const play = () => {
 		if (audioRef.current) {
@@ -45,14 +46,10 @@ export const Sound = () => {
 	}
 
 	return (
-		<SoundContainer $theme={customTheme}>
-			<audio
-				ref={audioRef}
-				src={src}
-				onEnded={handleEnded}
-			/>
-			<button onClick={play}>play</button>
-			<button onClick={stop}>stop</button>
-		</SoundContainer>
+		<audio
+			ref={audioRef}
+			src={src}
+			onEnded={handleEnded}
+		/>
 	)
 }

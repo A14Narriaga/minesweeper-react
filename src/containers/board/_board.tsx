@@ -10,7 +10,8 @@ import { BoardContainer } from "./_board.styled"
 import { Cell } from "./cell"
 
 export const Board = () => {
-	const levelID = useGame().get().levelID
+	const game = useGame()
+	const { levelID } = game.get()
 	const level = levels.find((level) => level.id === levelID) as ILevel
 	const { numOfCols, numOfRows, numOfMines } = level
 	const theme = useTheme()
@@ -30,6 +31,7 @@ export const Board = () => {
 	const uncover = (rowIndex: number, colIndex: number) => {
 		minesweeperRef.current.unconverBoard(rowIndex, colIndex)
 		setBoard([...minesweeperRef.current.board])
+		game.setStatus(minesweeperRef.current.status)
 	}
 
 	return (

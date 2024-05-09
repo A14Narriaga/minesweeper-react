@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import {
 	AppStore,
 	GameInitialState,
+	GameStausTypes,
 	GameTypes,
 	SessionStorageTypes
 } from "@src/models"
-import { setLevel } from "@src/redux"
+import { setLevel, setStatus } from "@src/redux"
 import { setSessionStorageObj } from "@src/utilities"
 
 export const useGame = () => {
@@ -23,9 +24,14 @@ export const useGame = () => {
 		)
 	}
 
+	function _setStatus(status: GameStausTypes) {
+		dispatch(setStatus(status))
+	}
+
 	const GameActions = {
 		get: () => app,
-		setLevel: (levelID: string) => _setLevel(levelID)
+		setLevel: (levelID: string) => _setLevel(levelID),
+		setStatus: (status: GameStausTypes) => _setStatus(status)
 	}
 
 	return GameActions

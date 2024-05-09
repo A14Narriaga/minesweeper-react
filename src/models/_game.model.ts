@@ -1,12 +1,16 @@
 import { getSessionStorage } from "@src/utilities"
 
-import { ICell } from "./_cell.model"
 import { IRecord } from "./_record.model"
 
+export enum GameStausTypes {
+	NONE = "none",
+	STARTED = "started",
+	LOST = "lost",
+	WON = "won"
+}
+
 export interface Game {
-	board: ICell[][]
-	usedFlags: number
-	time: string
+	status: GameStausTypes
 	records: {
 		easy: IRecord[]
 		normal: IRecord[]
@@ -16,17 +20,13 @@ export interface Game {
 }
 
 export enum GameTypes {
-	BOARD = "board",
-	USED_FLAGS = "usedFlags",
-	TIME = "time",
+	STATUS = "status",
 	RECORDS = "records",
 	LEVEL_ID = "levelID"
 }
 
 const GameDefaultState = {
-	board: [],
-	usedFlags: 0,
-	time: "00:00:00",
+	status: GameStausTypes.NONE,
 	records: {
 		easy: [],
 		normal: [],

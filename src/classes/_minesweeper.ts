@@ -1,4 +1,4 @@
-import { ICell } from "@src/models"
+import { GameStausTypes, ICell } from "@src/models"
 
 interface Position {
 	rowIndex: number
@@ -6,6 +6,7 @@ interface Position {
 }
 
 export class Minesweeper {
+	#status: GameStausTypes
 	#board: Array<Array<ICell>>
 	#mines: Array<Position>
 	#numOfCols: number
@@ -24,10 +25,15 @@ export class Minesweeper {
 		)
 		this.#addMines()
 		this.#addNumbers()
+		this.#status = GameStausTypes.NONE
 	}
 
 	get board() {
 		return this.#board
+	}
+
+	get status() {
+		return this.#status
 	}
 
 	#uncoverMines() {
@@ -35,9 +41,11 @@ export class Minesweeper {
 			const { rowIndex, colIndex } = mine
 			this.#board[rowIndex][colIndex].cover = false
 		}
+		this.#status = GameStausTypes.LOST
 	}
 
 	unconverBoard(rowIndex: number, colIndex: number) {
+		this.#status = GameStausTypes.STARTED
 		if (this.#board[rowIndex]?.[colIndex]?.cover) {
 			this.#board[rowIndex][colIndex].cover = false
 			if (this.#board[rowIndex]?.[colIndex]?.type === "mine") {

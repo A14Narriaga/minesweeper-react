@@ -12,7 +12,7 @@ export enum AppTypes {
 
 const AppDefaultState = {
 	themeID: "green-theme",
-	volume: 20
+	volume: 5
 }
 
 export const AppInitialState = getSessionStorage("app", AppDefaultState) as App
