@@ -2,11 +2,11 @@ import styled from "styled-components"
 
 import { ITheme } from "@src/models"
 
-interface PropsSetSoundContainer {
+interface PropsSetVolumeContainer {
 	$theme: ITheme
 }
 
-export const SetSoundContainer = styled.div<PropsSetSoundContainer>`
+export const SetVolumeContainer = styled.div<PropsSetVolumeContainer>`
 	p {
 		color: ${({ $theme }) => $theme.colors.cellCover2};
 	}

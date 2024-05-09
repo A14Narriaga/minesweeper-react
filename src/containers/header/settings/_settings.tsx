@@ -4,8 +4,8 @@ import { AtmIcon, MolModal } from "@src/shared"
 
 import { SettingsContainer } from "./_settings.styled"
 import { SetLevel } from "./set-level"
-import { SetSound } from "./set-sound"
 import { SetTheme } from "./set-theme"
+import { SetVolume } from "./set-volume"
 
 export const Settings = () => {
 	const [open, setOpen] = useState(false)
@@ -24,7 +24,7 @@ export const Settings = () => {
 				title="Ajustes"
 				handleClose={handleClose}>
 				<SettingsContainer>
-					<SetSound />
+					<SetVolume />
 					<SetTheme />
 					<SetLevel />
 				</SettingsContainer>

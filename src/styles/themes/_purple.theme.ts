@@ -2,8 +2,8 @@ import { createTheme } from "@mui/material"
 
 import { CustomThemeOptions } from "@src/models"
 
-export const BlueTheme = createTheme({
-	id: "blue-theme",
+export const PurpleTheme = createTheme({
+	id: "purple-theme",
 	typography: {
 		fontFamily: "Orbitron, sans-serif"
 	},
@@ -17,13 +17,13 @@ export const BlueTheme = createTheme({
 		MuiSlider: {
 			styleOverrides: {
 				thumb: {
-					color: "#51a8d7"
+					color: "#a842f4"
 				},
 				track: {
-					color: "#51a8d7"
+					color: "#a842f4"
 				},
 				rail: {
-					color: "blue"
+					color: "#6c146b"
 				}
 			}
 		}
@@ -34,13 +34,13 @@ export const BlueTheme = createTheme({
 	},
 	colors: {
 		background: "#242424",
-		primary: "#2c4a75",
+		primary: "#5f3dc4",
 		secondary: "#cfcfcf",
 		text1: "#ffffff",
 		text2: "#000000",
 		disabled: "#808080",
-		cellCover1: "#51a8d7",
-		cellCover2: "#49a1d1",
+		cellCover1: "#a842f4",
+		cellCover2: "#9d42f4",
 		cellUncover1: "#e5c29f",
 		cellUncover2: "#d7b899",
 		cellHover: "#ffffffb7",

@@ -1,3 +1,4 @@
 export enum SessionStorageTypes {
-	APP = "app"
+	APP = "app",
+	GAME = "game"
 }

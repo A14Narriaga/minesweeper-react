@@ -1,19 +1,18 @@
 import { useTheme } from "@mui/material"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { Minesweeper } from "@src/classes"
-import { ICell, ITheme } from "@src/models"
+import levels from "@src/data/levels.json"
+import { useGame } from "@src/hooks"
+import { ICell, ILevel, ITheme } from "@src/models"
 
 import { BoardContainer } from "./_board.styled"
 import { Cell } from "./cell"
 
-interface PropsBoard {
-	numOfRows: number
-	numOfCols: number
-	numOfMines: number
-}
-
-export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
+export const Board = () => {
+	const levelID = useGame().get().levelID
+	const level = levels.find((level) => level.id === levelID) as ILevel
+	const { numOfCols, numOfRows, numOfMines } = level
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
 	const minesweeperRef = useRef<Minesweeper>(
@@ -22,6 +21,11 @@ export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
 	const [board, setBoard] = useState<Array<Array<ICell>>>(
 		minesweeperRef.current.board
 	)
+
+	useEffect(() => {
+		minesweeperRef.current = new Minesweeper(numOfRows, numOfCols, numOfMines)
+		setBoard([...minesweeperRef.current.board])
+	}, [numOfCols, numOfRows, numOfMines])
 
 	const uncover = (rowIndex: number, colIndex: number) => {
 		minesweeperRef.current.unconverBoard(rowIndex, colIndex)

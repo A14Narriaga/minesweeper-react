@@ -14,8 +14,15 @@ export const AppSlice = createSlice({
 				themeID: action.payload
 			}
 			return newState
+		},
+		setVolume: (state: App, action) => {
+			const newState = {
+				...state,
+				volume: action.payload
+			}
+			return newState
 		}
 	}
 })
 
-export const { setTheme } = AppSlice.actions
+export const { setTheme, setVolume } = AppSlice.actions

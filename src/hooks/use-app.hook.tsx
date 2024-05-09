@@ -6,14 +6,14 @@ import {
 	AppTypes,
 	SessionStorageTypes
 } from "@src/models"
-import { setTheme } from "@src/redux"
+import { setTheme, setVolume } from "@src/redux"
 import { setSessionStorageObj } from "@src/utilities"
 
 export const useApp = () => {
 	const dispatch = useDispatch()
 	const app = useSelector((store: AppStore) => store.app)
 
-	function changeTheme(themeID: string) {
+	function _setTheme(themeID: string) {
 		dispatch(setTheme(themeID))
 		setSessionStorageObj(
 			SessionStorageTypes.APP,
@@ -23,9 +23,20 @@ export const useApp = () => {
 		)
 	}
 
+	function _setVolume(volume: number) {
+		dispatch(setVolume(volume))
+		setSessionStorageObj(
+			SessionStorageTypes.APP,
+			AppInitialState,
+			AppTypes.VOLUME,
+			volume
+		)
+	}
+
 	const AppActions = {
 		get: () => app,
-		changeTheme: (themeID: string) => changeTheme(themeID)
+		changeTheme: (themeID: string) => _setTheme(themeID),
+		setVolume: (volume: number) => _setVolume(volume)
 	}
 
 	return AppActions

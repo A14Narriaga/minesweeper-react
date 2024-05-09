@@ -1,6 +1,7 @@
 import { useTheme } from "@mui/material"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 
+import { useApp } from "@src/hooks"
 import { ITheme } from "@src/models"
 
 import { SoundContainer } from "./_sound.styled"
@@ -8,13 +9,24 @@ import { SoundContainer } from "./_sound.styled"
 const src = "/public/sounds/cyberpunk-moonlight-sonata-v2.mp3"
 
 export const Sound = () => {
+	const volume = useApp().get().volume / 100
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
 	const audioRef = useRef<HTMLAudioElement>(null)
 
+	useEffect(() => {
+		setVolume(volume)
+	}, [volume])
+
 	const play = () => {
 		if (audioRef.current) {
 			void audioRef.current.play()
+		}
+	}
+
+	const setVolume = (volume: number) => {
+		if (audioRef.current) {
+			audioRef.current.volume = volume
 		}
 	}
 

@@ -11,11 +11,7 @@ export const AppWrapper = () => {
 	return (
 		<ThemeProvider theme={getThemeByID(themeID)}>
 			<Header />
-			<Board
-				numOfCols={18}
-				numOfRows={14}
-				numOfMines={40}
-			/>
+			<Board />
 			<Timer />
 			<Controls />
 			<Sound />

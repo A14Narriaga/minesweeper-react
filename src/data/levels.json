@@ -1,0 +1,26 @@
+[
+	{
+		"id": "adga4334",
+		"category": "easy",
+		"display": "Facil",
+		"numOfCols": 14,
+		"numOfRows": 10,
+		"numOfMines": 10
+	},
+	{
+		"id": "asdfasdf34452",
+		"category": "normal",
+		"display": "Normal",
+		"numOfCols": 18,
+		"numOfRows": 14,
+		"numOfMines": 30
+	},
+	{
+		"id": "asdfa3535",
+		"category": "hard",
+		"display": "Dificil",
+		"numOfCols": 25,
+		"numOfRows": 15,
+		"numOfMines": 40
+	}
+]

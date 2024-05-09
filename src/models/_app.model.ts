@@ -2,14 +2,17 @@ import { getSessionStorage } from "@src/utilities"
 
 export interface App {
 	themeID: string
+	volume: number
 }
 
 export enum AppTypes {
-	THEME_ID = "themeID"
+	THEME_ID = "themeID",
+	VOLUME = "volume"
 }
 
 const AppDefaultState = {
-	themeID: "green-theme"
+	themeID: "green-theme",
+	volume: 20
 }
 
 export const AppInitialState = getSessionStorage("app", AppDefaultState) as App

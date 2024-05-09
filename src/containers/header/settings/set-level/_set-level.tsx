@@ -1,28 +1,33 @@
 import { useTheme } from "@mui/material"
 
+import levels from "@src/data/levels.json"
+import { useGame } from "@src/hooks/use-game.hook"
 import { ITheme } from "@src/models"
 
 import { SetLevelContainer } from "./_set-level.styled"
+import { Level } from "./level"
 
 export const SetLevel = () => {
+	const game = useGame()
+	const levelID = game.get().levelID
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
+
+	const setLevel = (levelID: string) => game.setLevel(levelID)
+
 	return (
 		<SetLevelContainer $theme={customTheme}>
 			<p>Niveles</p>
 			<div className="levels">
-				<div className="level active">
-					<div>Facil - 10x10</div>
-					<div>{customTheme.icons.mine} 10</div>
-				</div>
-				<div className="level">
-					<div>Normal - 10x10</div>
-					<div>{customTheme.icons.mine} 10</div>
-				</div>
-				<div className="level">
-					<div>Hard - 10x10</div>
-					<div>{customTheme.icons.mine} 10</div>
-				</div>
+				{levels.map((level) => (
+					<Level
+						key={level.id}
+						active={levelID === level.id}
+						level={level}
+						mineIcon={customTheme.icons.mine}
+						onClick={() => setLevel(level.id)}
+					/>
+				))}
 			</div>
 		</SetLevelContainer>
 	)
