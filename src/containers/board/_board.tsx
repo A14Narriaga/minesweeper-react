@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 import { Minesweeper } from "@src/classes"
 import { ICell, ITheme } from "@src/models"
@@ -16,14 +16,16 @@ interface PropsBoard {
 export const Board = ({ numOfCols, numOfRows, numOfMines }: PropsBoard) => {
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
-	const [minesweeper] = useState<Minesweeper>(
+	const minesweeperRef = useRef<Minesweeper>(
 		new Minesweeper(numOfRows, numOfCols, numOfMines)
 	)
-	const [board, setBoard] = useState<Array<Array<ICell>>>(minesweeper.board)
+	const [board, setBoard] = useState<Array<Array<ICell>>>(
+		minesweeperRef.current.board
+	)
 
 	const uncover = (rowIndex: number, colIndex: number) => {
-		minesweeper.unconverBoard(rowIndex, colIndex)
-		setBoard([...minesweeper.board])
+		minesweeperRef.current.unconverBoard(rowIndex, colIndex)
+		setBoard([...minesweeperRef.current.board])
 	}
 
 	return (
