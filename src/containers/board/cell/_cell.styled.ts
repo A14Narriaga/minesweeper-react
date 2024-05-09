@@ -22,8 +22,8 @@ const getCellColor = (
 		colors
 	const coverAux1 = isHover ? cellHover : cellCover1
 	const coverAux2 = isHover ? cellHover : cellCover2
-	const uncoverAux1 = isMine ? "red" : cellUncover1
-	const uncoverAux2 = isMine ? "red" : cellUncover2
+	const uncoverAux1 = isMine ? "trasparent" : cellUncover1
+	const uncoverAux2 = isMine ? "trasparent" : cellUncover2
 	const color1 = cover ? coverAux1 : uncoverAux1
 	const color2 = cover ? coverAux2 : uncoverAux2
 	const evenCol = col % 2 === 0 ? color1 : color2
