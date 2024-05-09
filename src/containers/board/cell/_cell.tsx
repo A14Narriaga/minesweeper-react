@@ -10,12 +10,15 @@ type CellProps = {
 	colIndex: number
 	rowIndex: number
 	onClick?: (e: React.MouseEvent) => void
+	onContextMenu?: (e: React.MouseEvent) => void
 }
 
-const getCellContent = ({ cover, type }: ICell) => {
-	if (cover) return ""
+const getCellContent = ({ cover, type, flag }: ICell) => {
+	if (cover) {
+		return flag ? <AtmIcon name="flag" /> : ""
+	}
 	if (typeof type === "number") return <i className={`num-${type}`}>{type}</i>
-	else if (["mine"].includes(type)) return <AtmIcon name={type} />
+	else if (type === "mine") return <AtmIcon name={type} />
 	else return ""
 }
 

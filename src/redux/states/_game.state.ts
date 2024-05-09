@@ -21,8 +21,15 @@ export const GameSlice = createSlice({
 				status: action.payload
 			}
 			return newState
+		},
+		setAvailableFlags: (state: Game, action) => {
+			const newState = {
+				...state,
+				availableFlags: action.payload
+			}
+			return newState
 		}
 	}
 })
 
-export const { setLevel, setStatus } = GameSlice.actions
+export const { setLevel, setStatus, setAvailableFlags } = GameSlice.actions

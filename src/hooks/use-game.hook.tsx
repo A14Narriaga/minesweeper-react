@@ -7,7 +7,7 @@ import {
 	GameTypes,
 	SessionStorageTypes
 } from "@src/models"
-import { setLevel, setStatus } from "@src/redux"
+import { setAvailableFlags, setLevel, setStatus } from "@src/redux"
 import { setSessionStorageObj } from "@src/utilities"
 
 export const useGame = () => {
@@ -28,10 +28,16 @@ export const useGame = () => {
 		dispatch(setStatus(status))
 	}
 
+	function _setAvailableFlags(availableFlags: number) {
+		dispatch(setAvailableFlags(availableFlags))
+	}
+
 	const GameActions = {
 		get: () => app,
 		setLevel: (levelID: string) => _setLevel(levelID),
-		setStatus: (status: GameStausTypes) => _setStatus(status)
+		setStatus: (status: GameStausTypes) => _setStatus(status),
+		setAvailableFlags: (availableFlags: number) =>
+			_setAvailableFlags(availableFlags)
 	}
 
 	return GameActions

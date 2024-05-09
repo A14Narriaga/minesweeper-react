@@ -16,22 +16,33 @@ export const Board = () => {
 	const { numOfCols, numOfRows, numOfMines } = level
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
-	const minesweeperRef = useRef<Minesweeper>(
-		new Minesweeper(numOfRows, numOfCols, numOfMines)
-	)
-	const [board, setBoard] = useState<Array<Array<ICell>>>(
-		minesweeperRef.current.board
-	)
+	const minesweeperRef = useRef<Minesweeper | null>(null)
+	const [board, setBoard] = useState<ICell[][]>([])
 
 	useEffect(() => {
 		minesweeperRef.current = new Minesweeper(numOfRows, numOfCols, numOfMines)
-		setBoard([...minesweeperRef.current.board])
+		updateStates()
 	}, [numOfCols, numOfRows, numOfMines])
 
-	const uncover = (rowIndex: number, colIndex: number) => {
-		minesweeperRef.current.unconverBoard(rowIndex, colIndex)
+	const updateStates = () => {
 		setBoard([...minesweeperRef.current.board])
+		game.setAvailableFlags(minesweeperRef.current.availableFlags)
 		game.setStatus(minesweeperRef.current.status)
+	}
+
+	const handleCell = (rowIndex: number, colIndex: number) => {
+		minesweeperRef.current.handleCell(rowIndex, colIndex)
+		updateStates()
+	}
+
+	const handleFlag = (
+		event: React.MouseEvent,
+		rowIndex: number,
+		colIndex: number
+	) => {
+		event.preventDefault()
+		minesweeperRef.current.handleFlag(rowIndex, colIndex)
+		updateStates()
 	}
 
 	return (
@@ -43,8 +54,9 @@ export const Board = () => {
 						className="rows">
 						{row.map((cell, colIndex) => (
 							<Cell
-								onClick={() => uncover(rowIndex, colIndex)}
 								key={`${colIndex}${rowIndex}`}
+								onContextMenu={(event) => handleFlag(event, rowIndex, colIndex)}
+								onClick={() => handleCell(rowIndex, colIndex)}
 								cell={cell}
 								colIndex={colIndex}
 								rowIndex={rowIndex}

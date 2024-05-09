@@ -17,12 +17,14 @@ export interface Game {
 		hard: IRecord[]
 	}
 	levelID: string
+	availableFlags: string
 }
 
 export enum GameTypes {
 	STATUS = "status",
 	RECORDS = "records",
-	LEVEL_ID = "levelID"
+	LEVEL_ID = "levelID",
+	FLAGS_USED = "availableFlags"
 }
 
 const GameDefaultState = {
@@ -32,7 +34,8 @@ const GameDefaultState = {
 		normal: [],
 		hard: []
 	},
-	levelID: "adga4334"
+	levelID: "adga4334",
+	availableFlags: 0
 }
 
 export const GameInitialState = getSessionStorage(
