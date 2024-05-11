@@ -47,8 +47,8 @@ export class Minesweeper {
 	}
 
 	handleCell(rowIndex: number, colIndex: number) {
-		this.#status = GameStausTypes.STARTED
 		if (this.#board[rowIndex][colIndex].flag) return
+		this.#status = GameStausTypes.STARTED
 		this.#unconverBoard(rowIndex, colIndex)
 		this.#checkWinCondition()
 	}
@@ -59,10 +59,15 @@ export class Minesweeper {
 			this.#board[rowIndex][colIndex].flag = false
 			this.#numOfFlagsUsed--
 		} else {
-			if (this.#numOfFlagsUsed === this.#numOfMines) return
-			this.#board[rowIndex][colIndex].flag = true
-			this.#numOfFlagsUsed++
+			if (
+				this.#board[rowIndex][colIndex].cover &&
+				this.#numOfFlagsUsed !== this.#numOfMines
+			) {
+				this.#board[rowIndex][colIndex].flag = true
+				this.#numOfFlagsUsed++
+			}
 		}
+		this.#checkWinCondition()
 	}
 
 	#checkWinCondition() {
@@ -95,8 +100,10 @@ export class Minesweeper {
 						)
 							continue
 						else {
-							if (this.#board[rowIndex + dx]?.[colIndex + dy]?.cover)
+							if (this.#board[rowIndex + dx]?.[colIndex + dy]?.cover) {
 								this.#board[rowIndex + dx][colIndex + dy].cover = false
+								this.#numOfCellsUnconver++
+							}
 						}
 					}
 				}
@@ -112,10 +119,14 @@ export class Minesweeper {
 	}
 
 	#addMines() {
-		for (let index = 0; index < this.#numOfMines; index++) {
+		let minesAdded = 0
+		while (minesAdded < this.#numOfMines) {
 			const { rowIndex, colIndex } = this.#getRandomCell()
-			this.#mines.push({ rowIndex, colIndex })
-			this.#board[rowIndex][colIndex].type = "mine"
+			if (this.#board[rowIndex][colIndex].type !== "mine") {
+				this.#mines.push({ rowIndex, colIndex })
+				this.#board[rowIndex][colIndex].type = "mine"
+				minesAdded++
+			}
 		}
 	}
 
