@@ -11,6 +11,9 @@ export const BlueTheme = createTheme({
 		mode: "dark",
 		background: {
 			paper: "#000000"
+		},
+		primary: {
+			main: "#51a8d7"
 		}
 	},
 	components: {

@@ -7,19 +7,16 @@ import {
 	TableRow,
 	useTheme
 } from "@mui/material"
+import { v4 as uuidv4 } from "uuid"
 
-import { ITheme } from "@src/models"
+import { IRecord, ITheme } from "@src/models"
+import { formatTime } from "@src/utilities"
 
 import { TableRecordsContainer } from "./_table-records.styled"
 
-interface Records {
-	userName: string
-	time: string
-}
-
 interface PropsTable {
 	title: string
-	records: Array<Records>
+	records: IRecord[]
 }
 
 const getMedal = (position: number) => {
@@ -59,8 +56,8 @@ export const TableRecords = ({ title, records }: PropsTable) => {
 					<TableBody>
 						{records.map((record, index) => (
 							<TableRow
+								key={uuidv4()}
 								hover
-								key={record.userName}
 								sx={{
 									"&:last-child td, &:last-child th": { border: 0 }
 								}}>
@@ -69,7 +66,7 @@ export const TableRecords = ({ title, records }: PropsTable) => {
 									scope="row">
 									{getMedal(index + 1)} {record.userName}
 								</TableCell>
-								<TableCell align="right">{record.time}</TableCell>
+								<TableCell align="right">{formatTime(record.time)}</TableCell>
 							</TableRow>
 						))}
 					</TableBody>

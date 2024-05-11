@@ -11,6 +11,6 @@ export const InstructionsContainer = styled.section<PropsInstructionsContainer>`
 	flex-direction: column;
 	gap: 1rem;
 	span {
-		color: ${({ $theme }) => $theme.colors.cellCover2};
+		color: ${({ $theme }) => $theme.colors.cellCover1};
 	}
 `

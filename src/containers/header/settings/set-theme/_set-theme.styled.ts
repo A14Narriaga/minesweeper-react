@@ -8,7 +8,7 @@ interface PropsSetThemeContainer {
 
 export const SetThemeContainer = styled.div<PropsSetThemeContainer>`
 	p {
-		color: ${({ $theme }) => $theme.colors.cellCover2};
+		color: ${({ $theme }) => $theme.colors.cellCover1};
 	}
 	.themes {
 		margin-top: 0.5rem;

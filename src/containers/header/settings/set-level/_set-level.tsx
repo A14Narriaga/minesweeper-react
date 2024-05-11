@@ -1,6 +1,5 @@
 import { useTheme } from "@mui/material"
 
-import levels from "@src/data/levels.json"
 import { useGame } from "@src/hooks/use-game.hook"
 import { GameStausTypes, ITheme } from "@src/models"
 
@@ -9,7 +8,7 @@ import { Level } from "./level"
 
 export const SetLevel = () => {
 	const game = useGame()
-	const { levelID } = game.get()
+	const { levelID, levels } = game.get()
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
 

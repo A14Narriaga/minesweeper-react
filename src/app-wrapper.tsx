@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@mui/material"
 
-import { Board, Controls, Header, Timer } from "./containers"
+import { Board, Controls, Feedback, Header, Timer } from "./containers"
 import { Sound } from "./containers/sound"
 import { useApp } from "./hooks"
 import { getThemeByID } from "./styles"
@@ -15,6 +15,7 @@ export const AppWrapper = () => {
 			<Timer />
 			<Controls />
 			<Sound />
+			<Feedback />
 		</ThemeProvider>
 	)
 }

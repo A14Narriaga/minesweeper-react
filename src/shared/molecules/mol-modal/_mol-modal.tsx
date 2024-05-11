@@ -3,9 +3,9 @@ import { ReactNode } from "react"
 
 interface MolModalProps {
 	open: boolean
-	title: string
+	title?: string
 	children: ReactNode
-	handleClose: () => void
+	handleClose?: () => void
 }
 
 export const MolModal = ({

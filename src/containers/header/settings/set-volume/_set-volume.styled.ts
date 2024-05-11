@@ -8,7 +8,7 @@ interface PropsSetVolumeContainer {
 
 export const SetVolumeContainer = styled.div<PropsSetVolumeContainer>`
 	p {
-		color: ${({ $theme }) => $theme.colors.cellCover2};
+		color: ${({ $theme }) => $theme.colors.cellCover1};
 	}
 	div {
 		margin-top: 0.5rem;

@@ -1,30 +1,17 @@
 import { useState } from "react"
 
+import { useGame } from "@src/hooks"
 import { AtmIcon, MolModal } from "@src/shared"
 
 import { RecordsContainer } from "./_records.styled"
 import { TableRecords } from "./table-records"
 
 export const Records = () => {
+	const { records } = useGame().get()
 	const [open, setOpen] = useState(false)
 
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
-
-	const recordsHard = [
-		{ userName: "A14Narriaga", time: "00:10:00" },
-		{ userName: "JuanPerez", time: "12:00:00" }
-	]
-
-	const recordsMiddle = [
-		{ userName: "Chichin", time: "00:10:00" },
-		{ userName: "La99", time: "08:00:00" }
-	]
-
-	const recordsEasy = [
-		{ userName: "El junchito", time: "00:00:01" },
-		{ userName: "Chesterchetos", time: "10:00:00" }
-	]
 
 	return (
 		<>
@@ -39,15 +26,15 @@ export const Records = () => {
 				<RecordsContainer>
 					<TableRecords
 						title="Dificil"
-						records={recordsEasy}
+						records={records.hard}
 					/>
 					<TableRecords
-						title="Medio"
-						records={recordsMiddle}
+						title="Normal"
+						records={records.normal}
 					/>
 					<TableRecords
 						title="Facil"
-						records={recordsHard}
+						records={records.easy}
 					/>
 				</RecordsContainer>
 			</MolModal>

@@ -8,7 +8,7 @@ interface PropsSetLevelContainer {
 
 export const SetLevelContainer = styled.div<PropsSetLevelContainer>`
 	p {
-		color: ${({ $theme }) => $theme.colors.cellCover2};
+		color: ${({ $theme }) => $theme.colors.cellCover1};
 	}
 	.levels {
 		margin-top: 0.5rem;

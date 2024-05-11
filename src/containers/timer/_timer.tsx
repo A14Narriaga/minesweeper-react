@@ -3,26 +3,23 @@ import { useEffect, useState } from "react"
 
 import { useGame } from "@src/hooks"
 import { GameStausTypes, ITheme } from "@src/models"
+import { formatTime } from "@src/utilities"
 
 import { TimerContainer } from "./_timer.styled"
 
-const formatTime = (seconds: number): string => {
-	const hours = Math.floor(seconds / 3600)
-	const minutes = Math.floor((seconds % 3600) / 60)
-	const remainingSeconds = seconds % 60
-	return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`
-}
-
 export const Timer = () => {
-	const { status } = useGame().get()
+	const game = useGame()
+	const { status } = game.get()
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
 	const [seconds, setSeconds] = useState<number>(0)
 	const [isRunning, setIsRunning] = useState<boolean>(false)
 
 	useEffect(() => {
-		if (status === GameStausTypes.WON || status === GameStausTypes.LOST)
+		if (status === GameStausTypes.WON || status === GameStausTypes.LOST) {
 			setIsRunning(false)
+			game.setTime(seconds)
+		}
 		if (status === GameStausTypes.STARTED) setIsRunning(true)
 		if (status === GameStausTypes.NONE) {
 			setIsRunning(false)

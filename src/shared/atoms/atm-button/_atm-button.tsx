@@ -22,6 +22,13 @@ export const AtmButton = ({
 	onClick
 }: PropsAtmButton) => {
 	return text === undefined ? (
+		<IconButton
+			onClick={onClick}
+			size={size}
+			disabled={disabled}>
+			{startIcon || endIcon}
+		</IconButton>
+	) : (
 		<Button
 			onClick={onClick}
 			startIcon={startIcon}
@@ -31,12 +38,5 @@ export const AtmButton = ({
 			disabled={disabled}>
 			{text}
 		</Button>
-	) : (
-		<IconButton
-			onClick={onClick}
-			size={size}
-			disabled={disabled}>
-			{startIcon || endIcon}
-		</IconButton>
 	)
 }

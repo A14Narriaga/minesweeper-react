@@ -11,21 +11,9 @@ export const GreenTheme = createTheme({
 		mode: "dark",
 		background: {
 			paper: "#000000"
-		}
-	},
-	components: {
-		MuiSlider: {
-			styleOverrides: {
-				thumb: {
-					color: "#aad751"
-				},
-				track: {
-					color: "#aad751"
-				},
-				rail: {
-					color: "green"
-				}
-			}
+		},
+		primary: {
+			main: "#aad751"
 		}
 	},
 	icons: {

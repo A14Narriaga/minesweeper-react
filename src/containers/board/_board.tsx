@@ -2,17 +2,16 @@ import { useTheme } from "@mui/material"
 import { useEffect, useRef, useState } from "react"
 
 import { Minesweeper } from "@src/classes"
-import levels from "@src/data/levels.json"
 import { useGame } from "@src/hooks"
-import { ICell, ILevel, ITheme } from "@src/models"
+import { GameStausTypes, ICell, ITheme } from "@src/models"
 
 import { BoardContainer } from "./_board.styled"
 import { Cell } from "./cell"
 
 export const Board = () => {
 	const game = useGame()
-	const { levelID } = game.get()
-	const level = levels.find((level) => level.id === levelID) as ILevel
+	const { levelID, status, levels } = game.get()
+	const level = levels.find((level) => level.id === levelID)!
 	const { numOfCols, numOfRows, numOfMines } = level
 	const theme = useTheme()
 	const customTheme = theme as unknown as ITheme
@@ -23,6 +22,13 @@ export const Board = () => {
 		minesweeperRef.current = new Minesweeper(numOfRows, numOfCols, numOfMines)
 		updateStates()
 	}, [numOfCols, numOfRows, numOfMines])
+
+	useEffect(() => {
+		if (status === GameStausTypes.NONE) {
+			minesweeperRef.current = new Minesweeper(numOfRows, numOfCols, numOfMines)
+			updateStates()
+		}
+	}, [status])
 
 	const updateStates = () => {
 		setBoard([...minesweeperRef.current.board])

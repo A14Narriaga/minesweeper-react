@@ -8,6 +8,6 @@ interface PropsTableRecordsContainer {
 
 export const TableRecordsContainer = styled.div<PropsTableRecordsContainer>`
 	p {
-		color: ${({ $theme }) => $theme.colors.cellCover2};
+		color: ${({ $theme }) => $theme.colors.cellCover1};
 	}
 `
