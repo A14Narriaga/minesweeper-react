@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { useGame } from "@src/hooks"
 import { AtmButton, AtmInput } from "@src/shared"
 
+import { AtmParticles } from "../../../shared/atoms/atm-particles/_atm-particles"
 import { AddRecordContainer } from "./_add-record.styled"
 interface PropsAddRecord {
 	levelCategory: string
@@ -20,6 +21,7 @@ export const AddRecord = ({ levelCategory, time }: PropsAddRecord) => {
 
 	return (
 		<AddRecordContainer>
+			<AtmParticles />
 			<div className="trophy">🏆</div>
 			<div className="form">
 				<p>🎉 Felicidades 🎉</p>

@@ -145,3 +145,4 @@ yarn lint:fix
 ## Resources
 
 <https://opengameart.org/content/cyberpunk-moonlight-sonata>
+<https://confetti.js.org>
