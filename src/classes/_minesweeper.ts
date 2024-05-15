@@ -7,8 +7,8 @@ interface Position {
 
 export class Minesweeper {
 	#status: GameStausTypes
-	#board: Array<Array<ICell>>
-	#mines: Array<Position>
+	#board: ICell[][]
+	#mines: Position[]
 	#numOfCols: number
 	#numOfRows: number
 	#numOfMines: number
