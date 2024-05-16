@@ -2,8 +2,9 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"useDefineForClassFields": true,
-		"lib": ["esnext", "DOM", "DOM.Iterable"],
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"module": "esnext",
+		"target": "ES6",
 		"skipLibCheck": true,
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,

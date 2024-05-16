@@ -19,6 +19,10 @@ export const AddRecord = ({ levelCategory, time }: PropsAddRecord) => {
 		game.addRecord(levelCategory, time, inputValue)
 	}
 
+	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setInputValue(event.target.value)
+	}
+
 	return (
 		<AddRecordContainer>
 			<AtmParticles />
@@ -30,9 +34,7 @@ export const AddRecord = ({ levelCategory, time }: PropsAddRecord) => {
 				<AtmInput
 					label="Nombre de usuario"
 					value={inputValue}
-					onChange={(event: React.ChangeEvent) =>
-						setInputValue(event.target.value)
-					}
+					onChange={handleInputChange}
 				/>
 				<br />
 				<AtmButton

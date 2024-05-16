@@ -8,17 +8,19 @@ export const AppSlice = createSlice({
 	name: SessionStorageTypes.APP,
 	initialState,
 	reducers: {
-		setTheme: (state: App, action) => {
+		setTheme: (state: App, { payload }) => {
+			const themeID = payload as unknown as string
 			const newState = {
 				...state,
-				themeID: action.payload
+				themeID
 			}
 			return newState
 		},
-		setVolume: (state: App, action) => {
+		setVolume: (state: App, { payload }) => {
+			const volume = payload as unknown as number
 			const newState = {
 				...state,
-				volume: action.payload
+				volume
 			}
 			return newState
 		}

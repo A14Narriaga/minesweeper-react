@@ -24,7 +24,9 @@ export function setSessionStorageObj(
 	prop: string,
 	value: unknown
 ): unknown {
-	const storage = { ...getSessionStorage(key, init) }
+	const storage = {
+		...(getSessionStorage(key, init) as Record<string, unknown>)
+	}
 	storage[prop] = value
 	setSessionStorage(key, storage)
 	return storage[prop]
@@ -36,5 +38,5 @@ export function getSessionStorageObj(
 	prop: string
 ): unknown {
 	const storage = getSessionStorage(key, init)
-	return storage[prop]
+	return (storage as Record<string, unknown>)[prop]
 }

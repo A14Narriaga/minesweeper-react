@@ -14,7 +14,7 @@ export const SetVolume = () => {
 	const customTheme = theme as unknown as ITheme
 	const [volume, setVolume] = useState<number>(initialVolume)
 
-	const handleChange = (event: Event, volume: number | number[]) => {
+	const handleChange = (_event: Event, volume: number | number[]) => {
 		setVolume(volume as number)
 	}
 

@@ -31,13 +31,15 @@ export const Board = () => {
 	}, [status])
 
 	const updateStates = () => {
-		setBoard([...minesweeperRef.current.board])
-		game.setAvailableFlags(minesweeperRef.current.availableFlags)
-		game.setStatus(minesweeperRef.current.status)
+		if (minesweeperRef.current) {
+			setBoard([...minesweeperRef.current.board])
+			game.setAvailableFlags(minesweeperRef.current.availableFlags)
+			game.setStatus(minesweeperRef.current.status)
+		}
 	}
 
 	const handleCell = (rowIndex: number, colIndex: number) => {
-		minesweeperRef.current.handleCell(rowIndex, colIndex)
+		minesweeperRef.current?.handleCell(rowIndex, colIndex)
 		updateStates()
 	}
 
@@ -47,7 +49,7 @@ export const Board = () => {
 		colIndex: number
 	) => {
 		event.preventDefault()
-		minesweeperRef.current.handleFlag(rowIndex, colIndex)
+		minesweeperRef.current?.handleFlag(rowIndex, colIndex)
 		updateStates()
 	}
 
