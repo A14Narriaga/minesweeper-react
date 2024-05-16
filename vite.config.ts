@@ -9,7 +9,7 @@ import { defineConfig } from "vite"
 const port = Number(process.env.PORT) || 4000
 
 export default defineConfig({
-	base: "/",
+	base: "./",
 	plugins: [react()],
 	server: {
 		port,
