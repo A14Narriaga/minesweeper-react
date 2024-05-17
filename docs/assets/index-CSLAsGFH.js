@@ -1,0 +1,2 @@
+const __vite__fileDeps=["./EmittersSquareShapeGenerator-BiqBCzq5.js","./EmitterShapeBase-4KcS34Iy.js","./index-CSZeOtIp.js","./index-DdYVmfh3.css"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
+import{_ as i}from"./index-CSZeOtIp.js";async function m(a,t=!0){var e;const r=a,{EmittersSquareShapeGenerator:o}=await i(()=>import("./EmittersSquareShapeGenerator-BiqBCzq5.js"),__vite__mapDeps([0,1,2,3]),import.meta.url);(e=r.addEmitterShapeGenerator)==null||e.call(r,"square",new o),await r.refresh(t)}export{m as loadEmittersShapeSquare};

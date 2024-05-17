@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react"
 import { useApp, useGame } from "@src/hooks"
 import { GameStausTypes } from "@src/models"
 
-const src = "/public/sounds/cyberpunk-moonlight-sonata-v2.mp3"
+const src = "./sounds/cyberpunk-moonlight-sonata-v2.mp3"
 
 export const Sound = () => {
 	const { status } = useGame().get()

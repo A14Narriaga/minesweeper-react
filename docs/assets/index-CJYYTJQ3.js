@@ -1,0 +1,2 @@
+const __vite__fileDeps=["./Pauser-DNnHNTke.js","./ExternalInteractorBase-CIi3zRdK.js"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
+import{_ as n}from"./index-CSZeOtIp.js";async function i(t,a=!0){await t.addInteractor("externalPause",async r=>{const{Pauser:e}=await n(()=>import("./Pauser-DNnHNTke.js"),__vite__mapDeps([0,1]),import.meta.url);return new e(r)},a)}export{i as loadExternalPauseInteraction};

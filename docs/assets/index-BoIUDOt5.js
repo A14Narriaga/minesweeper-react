@@ -1,0 +1,2 @@
+const __vite__fileDeps=["./AbsorbersPlugin-BZPk86gY.js","./index-CSZeOtIp.js","./index-DdYVmfh3.css","./ValueWithRandom-BMGtUM7K.js","./AnimationOptions-Cfv31Bf2.js","./OptionsColor-BVs77j7X.js"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
+import{_ as i}from"./index-CSZeOtIp.js";async function n(r,t=!0){const{AbsorbersPlugin:o}=await i(()=>import("./AbsorbersPlugin-BZPk86gY.js").then(a=>a.a),__vite__mapDeps([0,1,2,3,4,5]),import.meta.url);await r.addPlugin(new o,t)}export{n as loadAbsorbersPlugin};
